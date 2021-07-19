@@ -1,0 +1,32 @@
+<!-- about.html-->
+
+{% extends "base.html" %}
+
+{% block title %}
+	Results
+{% endblock %}
+
+{% block insideJumbotron %}
+	<h1>Crops</h1>
+	<hr class="my-4">
+	<p class="lead">You can grow these crops on your soil.</p>
+{% endblock %}
+
+{% block body %}
+	<div class="row" style="justify-content: center;">
+
+		{% for x in prediction_text %}
+			<div class="col-sm-4">
+		    	<div class="card">
+		    		<img class="card-img-top" src="../static/images/cropImages/{{ x[0] }}" alt="Card image cap">
+		      		<div class="card-body">
+		        		<h5 class="card-title">{{ x[1] }}</h5>
+		        		<p class="card-text">{{ x[2] }}</p>
+		        		<a href="{{ x[3] }}" class="btn btn-primary">Crop Info</a> <!-- Link for crop information -->
+		      		</div>
+		    	</div>
+		  	</div>
+		{% endfor %}
+
+	</div>
+{% endblock %}
